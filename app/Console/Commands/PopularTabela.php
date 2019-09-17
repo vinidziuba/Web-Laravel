@@ -5,8 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App;
 
-class PopularTabela extends Command {
-
+class PopularTabela extends Command
+{
     /**
      * The name and signature of the console command.
      *
@@ -19,65 +19,85 @@ class PopularTabela extends Command {
      *
      * @var string
      */
-    protected $description = 'Preenche as Tabelas';
+    protected $description = 'Preenche nas tabelas';
 
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function handle() {
-
-        $arrayCategorias [] = "Placas de Vídeo";
-        $arrayCategorias [] = "Smartphones";
-        $arrayCategorias [] = "Periféricos";
-        $arrayCategorias [] = "Computadores";
-        $arrayCategorias [] = "Monitores";
-
-        foreach ($arrayCategorias as $cat) {
-            $categoria = new App\Categoria();
-            $categoria->nomcat = $cat;
-            $categoria->save();
-        }
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $vnome [] = 'Denner';
+        $vnome [] = 'Cris';
+        $vnome [] = 'Gabriel';
+        $vnome [] = 'Alexandre';
+        $vnome [] = 'Ptrus';
         
-        $arrayProduto [1] = "Cadeira Gamer Husky Snow";      
-        $arrayProduto [1] = "Console Sony PlayStation 4 1TB";       
-        $arrayProduto [1] = "Headset Gamer HyperX CloudX";       
-        $arrayProduto [1] = "iPhone XS Cinza Espacial, 64GB";      
-        $arrayProduto [1] = "Smartphone Samsung Galaxy S10+";
+        $cpf [] = '99999999999';
+        $cpf [] = '99999999995';
+        $cpf [] = '99999999994';
+        $cpf [] = '99999999993';
+        $cpf [] = '99999999992';
         
-        $arrayProduto [2] = "Cadeira Gamer Husky Snow Black HSN-BK";
-        $arrayProduto [2] = "O pacote PlayStation Hits oferece jogos incríveis ";
-        $arrayProduto [2] = "O HyperX CloudX Stinger Core é o headset perfeito";
-        $arrayProduto [2] = "O Apple iPhone XS é um dos smartphones iOS mais avançados e completos";
-        $arrayProduto [2] = "O Samsung Galaxy S10 Plus é um smartphone Android ";
+        $end [] = 'Rua Joaquim Zucco 127';
+        $end [] = 'Rua Ruan Zucco 222';
+        $end [] = 'Rua Bruno Zucco 111';
+        $end [] = 'Rua Navi Zucco 196';
+        $end [] = 'Rua kuler Zucco 185';
         
-        $arrayProduto [3] = 411.65;
-        $arrayProduto [3] = 2.089;
-        $arrayProduto [3] = 179.90;
-        $arrayProduto [3] = 4.309;
-        $arrayProduto [3] = 3.869;  
+        $bai [] = 'Barracão';
+        $bai [] = 'Santa rita';
+        $bai [] = 'Santa Terezinha';
+        $bai [] = 'Planalto';
+        $bai [] = 'Limeira Limeira';
         
-        $arrayProduto [4] = 1;
-        $arrayProduto [4] = 1;
-        $arrayProduto [4] = 1;
-        $arrayProduto [4] = 1;
-        $arrayProduto [4] = 1;
+        $cid [] = 'Brusque';
+        $cid [] = 'Dom Joaquim';
+        $cid [] = 'João Batista';
+        $cid [] = 'Barcelona';
+        $cid [] = 'Madrid';
         
+        $uf [] = 'SC';
+        $uf [] = 'PR';
+        $uf [] = 'RJ';
+        $uf [] = 'SP';
+        $uf [] = 'RS';
         
+        $tel [] = '11111111111';
+        $tel [] = '11111111112';
+        $tel [] = '11111111113';
+        $tel [] = '11111111114';
+        $tel [] = '11111111115';
         
-        foreach ($arrayProduto as $prod) {
-            $produto = new App\Produto();
-            $produto->nompro = $prod[1];
-            $produto->despro = $prod[2];
-            $produto->vlrpro = $prod[3];
-            $produto->codcat = $prod[4];
-            $produto->save();
-        }
+        $num [] = 1;
+        $num [] = 2;
+        $num [] = 3;
+        $num [] = 4;
+        $num [] = 5;
+        
+        for($i = 0; $i < 5 ; $i++){
+            $cliente = new App\Cliente();
+            $cliente->nomcli = $vnome[$i];
+            $cliente->cpfcli = $cpf[$i];
+            $cliente->endcli = $end[$i];
+            $cliente->numcli = $num[$i];
+            $cliente->baicli = $bai[$i];
+            $cliente->cidcli = $cid[$i];
+            $cliente->ufcli = $uf[$i];
+            $cliente->telcli = $tel[$i];
+            $cliente->save();
+		}
+                             
     }
-
 }

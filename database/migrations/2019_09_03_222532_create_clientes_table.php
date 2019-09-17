@@ -15,14 +15,14 @@ class CreateClientesTable extends Migration
     {
         Schema::create('cliente', function (Blueprint $table) {
             $table->increments('codcli');
-            $table->string('nomecli', 60);
+            $table->string('nomcli',50);
             $table->string('cpfcli', 11);
             $table->string('endcli', 200);
             $table->integer('numcli');
-            $table->string('baicli', 60);
-            $table->string('cidcli', 60);
-            $table->string('ufcli', 60);
-            $table->string('telcli', 11);
+            $table->string('baicli', 30);
+            $table->string('cidcli', 45);
+            $table->string('ufcli', 2);
+            $table->string('telcli',11);
             $table->timestamps();
         });
     }
